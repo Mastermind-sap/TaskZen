@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_leap/config/assets.dart';
+import 'package:task_leap/pages/home/widgets/create_overlay.dart';
 import 'package:task_leap/widgets/snack_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,35 +30,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         backgroundColor: (Colors.cyan),
         floatingActionButton: IconButton(
-          color: Colors.blue,
-          style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(Colors.black)),
-          icon: Icon(Icons.add),
-          onPressed: () => showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              content: Column(
-                children: [
-                  TextField(
-                    decoration: InputDecoration(hintText: "Enter task here"),
-                    onChanged: (value) => newTask = value,
-                  )
-                ],
-              ),
-              actions: [
-                TextButton(
-                    onPressed: () {
-                      tasks.add(newTask);
-                      newTask = "";
-                      setState(() {});
-                      // show difference
-                      // Navigator.pop(context);
-                    },
-                    child: Text("Add task"))
-              ],
-            ),
-          ),
-        ),
+            color: Colors.blue,
+            style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.black)),
+            icon: Icon(Icons.add),
+            onPressed: () async {
+              await showDialog(
+                  context: context, builder: (context) => CreateOverlay());
+              setState(() {});
+            }),
         body: ListView.builder(
           itemCount: tasks.length,
           itemBuilder: (context, index) {
