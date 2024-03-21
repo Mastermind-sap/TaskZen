@@ -14,11 +14,12 @@ class TaskLeap extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: lightTheme,
-      routes: {
-        SplashScreen.route: (BuildContext context) => const SplashScreen(),
-      },
+      // routes: {
+      //   SplashScreen.route: (BuildContext context) => const SplashScreen(),
+      // },
       builder: ErrorHandler.handle,
-      initialRoute: SplashScreen.route,
+      home: HomeScreen(),
+      // initialRoute: SplashScreen.route,
     );
   }
 }

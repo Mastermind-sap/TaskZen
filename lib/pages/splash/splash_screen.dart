@@ -43,6 +43,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: Show the app logo and maybe the app name
-    return const Placeholder();
+    return Scaffold(backgroundColor: Colors.red,);
   }
 }
